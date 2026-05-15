@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "employeeCode": "ADM001",
+    "name": "Admin User",
+    "email": "admin@lenderstitle.com",
+    "password": "admin123",
+    "department": "Management",
+    "shiftId": 1,
+    "role": "Admin"
+  },
+  {
+    "id": 2,
+    "employeeCode": "EMP001",
+    "name": "Soumik Banerjee",
+    "email": "soumik@gmail.com",
+    "password": "123456",
+    "department": "IT",
+    "shiftId": 1,
+    "role": "Employee"
+  },
+  {
+    "id": 3,
+    "employeeCode": "EMP002",
+    "name": "Priya Sharma",
+    "email": "priya@gmail.com",
+    "password": "123456",
+    "department": "Finance",
+    "shiftId": 1,
+    "role": "Employee"
+  },
+  {
+    "id": 4,
+    "employeeCode": "EMP003",
+    "name": "Rahul Verma",
+    "email": "rahul@gmail.com",
+    "password": "123456",
+    "department": "HR",
+    "shiftId": 1,
+    "role": "Employee"
+  },
+  {
+    "id": 5,
+    "employeeCode": "EMP004",
+    "name": "Anita Desai",
+    "email": "anita@gmail.com",
+    "password": "123456",
+    "department": "Operations",
+    "shiftId": 1,
+    "role": "Employee"
+  },
+  {
+    "id": 6,
+    "employeeCode": "EMP005",
+    "name": "Vikram Patel",
+    "email": "vikram@gmail.com",
+    "password": "123456",
+    "department": "Legal",
+    "shiftId": 1,
+    "role": "Employee"
+  }
+]

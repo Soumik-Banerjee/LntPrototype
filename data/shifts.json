@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "shiftName": "General",
+    "startTime": "09:00",
+    "endTime": "18:00",
+    "graceMinutes": 15
+  },
+  {
+    "id": 2,
+    "shiftName": "Morning",
+    "startTime": "08:00",
+    "endTime": "17:00",
+    "graceMinutes": 10
+  },
+  {
+    "id": 3,
+    "shiftName": "Evening",
+    "startTime": "14:00",
+    "endTime": "23:00",
+    "graceMinutes": 15
+  }
+]
