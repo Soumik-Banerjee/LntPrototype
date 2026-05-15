@@ -1,1 +1,28 @@
-[]
+[
+  {
+    "id": 1,
+    "employeeId": 2,
+    "employeeName": "Soumik Banerjee",
+    "startDate": "2026-05-15",
+    "endDate": "2026-05-17",
+    "days": 2,
+    "type": "Sick",
+    "reason": "headache",
+    "status": "Approved",
+    "adminRemarks": "Approved by admin",
+    "appliedOn": "2026-05-15T18:18:38.665Z"
+  },
+  {
+    "id": 2,
+    "employeeId": 1,
+    "employeeName": "Admin User",
+    "startDate": "2026-05-15",
+    "endDate": "2026-06-06",
+    "days": 20,
+    "type": "Casual",
+    "reason": "NA",
+    "status": "Rejected",
+    "adminRemarks": "Rejected by admin",
+    "appliedOn": "2026-05-15T18:22:59.319Z"
+  }
+]
