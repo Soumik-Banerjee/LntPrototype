@@ -26,6 +26,21 @@
       <div class="nav-item">
         <a class="nav-link" href="/leave.html"><i class="bi bi-calendar-plus"></i>Leave</a>
       </div>
+      <div class="nav-item admin-only" style="display:none;">
+        <a class="nav-link" href="/ledger.html"><i class="bi bi-people-fill"></i>Ledger Master</a>
+      </div>
+      <div class="nav-item admin-only" style="display:none;">
+        <a class="nav-link" href="/loan-types.html"><i class="bi bi-tags-fill"></i>Loan Types</a>
+      </div>
+      <div class="nav-item admin-only" style="display:none;">
+        <a class="nav-link" href="/loan-milestones.html"><i class="bi bi-list-check"></i>Milestones</a>
+      </div>
+      <div class="nav-item admin-only" style="display:none;">
+        <a class="nav-link" href="/loan-cases.html"><i class="bi bi-folder2-open"></i>Loan Cases</a>
+      </div>
+      <div class="nav-item admin-only" style="display:none;">
+        <a class="nav-link" href="/followups.html"><i class="bi bi-chat-dots"></i>Follow-ups</a>
+      </div>
       <div class="nav-item">
         <a class="nav-link active" href="/admin.html"><i class="bi bi-shield-lock-fill"></i>Admin Panel</a>
       </div>
@@ -81,6 +96,51 @@
           <div class="stat-icon"><i class="bi bi-send"></i></div>
           <div class="stat-label">Pending Leaves</div>
           <div class="stat-value" id="pendingLeaves">0</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-4 mb-4">
+      <div class="col-6 col-md-4 col-lg-2">
+        <div class="stat-card primary-card">
+          <div class="stat-icon"><i class="bi bi-building"></i></div>
+          <div class="stat-label">Total Ledgers</div>
+          <div class="stat-value" id="loanTotalLedgers">0</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-2">
+        <div class="stat-card warning-card">
+          <div class="stat-icon"><i class="bi bi-folder2-open"></i></div>
+          <div class="stat-label">Loan Cases</div>
+          <div class="stat-value" id="loanTotalCases">0</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-2">
+        <div class="stat-card danger-card">
+          <div class="stat-icon"><i class="bi bi-hourglass-split"></i></div>
+          <div class="stat-label">Pending Cases</div>
+          <div class="stat-value" id="loanPendingCases">0</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-2">
+        <div class="stat-card success-card">
+          <div class="stat-icon"><i class="bi bi-check-circle"></i></div>
+          <div class="stat-label">Sanctioned</div>
+          <div class="stat-value" id="loanSanctionedCases">0</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-2">
+        <div class="stat-card info-card">
+          <div class="stat-icon"><i class="bi bi-cash-stack"></i></div>
+          <div class="stat-label">Disbursed</div>
+          <div class="stat-value" id="loanDisbursedCases">0</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-2">
+        <div class="stat-card danger-card">
+          <div class="stat-icon"><i class="bi bi-bell"></i></div>
+          <div class="stat-label">Overdue Follow-ups</div>
+          <div class="stat-value" id="loanOverdueFollowups">0</div>
         </div>
       </div>
     </div>
@@ -150,6 +210,34 @@
               </table>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="content-card mt-4">
+      <div class="card-header">
+        <span><i class="bi bi-activity me-2"></i>Recent Loan Activity</span>
+        <span class="badge bg-primary" id="loanActivityCount">0</span>
+      </div>
+      <div class="card-body p-0">
+        <div class="table-responsive">
+          <table class="table table-custom mb-0">
+            <thead>
+              <tr>
+                <th>Case</th>
+                <th>Milestone</th>
+                <th>Status</th>
+                <th>Remark</th>
+                <th>Changed By</th>
+                <th>Changed At</th>
+              </tr>
+            </thead>
+            <tbody id="loanActivityBody">
+              <tr>
+                <td colspan="6" class="text-center text-muted py-4">Loading...</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>

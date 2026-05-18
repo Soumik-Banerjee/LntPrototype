@@ -1,0 +1,86 @@
+[
+  {
+    "LoanMilestoneId": 1,
+    "MilestoneName": "Document in Office",
+    "MilestoneOrder": 1,
+    "IsActive": true,
+    "IsFinalStage": false,
+    "RequiresRemark": false,
+    "RequiresDocumentUpload": false,
+    "DefaultSlaDays": 2,
+    "CreatedAt": "2026-05-18T00:00:00.000Z",
+    "UpdatedAt": "2026-05-18T00:00:00.000Z"
+  },
+  {
+    "LoanMilestoneId": 2,
+    "MilestoneName": "Document Submitted in Bank",
+    "MilestoneOrder": 2,
+    "IsActive": true,
+    "IsFinalStage": false,
+    "RequiresRemark": true,
+    "RequiresDocumentUpload": true,
+    "DefaultSlaDays": 3,
+    "CreatedAt": "2026-05-18T00:00:00.000Z",
+    "UpdatedAt": "2026-05-18T00:00:00.000Z"
+  },
+  {
+    "LoanMilestoneId": 3,
+    "MilestoneName": "Query Raised",
+    "MilestoneOrder": 3,
+    "IsActive": true,
+    "IsFinalStage": false,
+    "RequiresRemark": true,
+    "RequiresDocumentUpload": false,
+    "DefaultSlaDays": 2,
+    "CreatedAt": "2026-05-18T00:00:00.000Z",
+    "UpdatedAt": "2026-05-18T00:00:00.000Z"
+  },
+  {
+    "LoanMilestoneId": 4,
+    "MilestoneName": "Query Resolved",
+    "MilestoneOrder": 4,
+    "IsActive": true,
+    "IsFinalStage": false,
+    "RequiresRemark": true,
+    "RequiresDocumentUpload": false,
+    "DefaultSlaDays": 2,
+    "CreatedAt": "2026-05-18T00:00:00.000Z",
+    "UpdatedAt": "2026-05-18T00:00:00.000Z"
+  },
+  {
+    "LoanMilestoneId": 5,
+    "MilestoneName": "Sanctioned",
+    "MilestoneOrder": 5,
+    "IsActive": true,
+    "IsFinalStage": false,
+    "RequiresRemark": true,
+    "RequiresDocumentUpload": false,
+    "DefaultSlaDays": 1,
+    "CreatedAt": "2026-05-18T00:00:00.000Z",
+    "UpdatedAt": "2026-05-18T00:00:00.000Z"
+  },
+  {
+    "LoanMilestoneId": 6,
+    "MilestoneName": "Loan Disbursed",
+    "MilestoneOrder": 6,
+    "IsActive": true,
+    "IsFinalStage": true,
+    "RequiresRemark": true,
+    "RequiresDocumentUpload": false,
+    "DefaultSlaDays": 1,
+    "CreatedAt": "2026-05-18T00:00:00.000Z",
+    "UpdatedAt": "2026-05-18T00:00:00.000Z"
+  },
+  {
+    "LoanMilestoneId": 7,
+    "MilestoneName": "Rejected",
+    "MilestoneOrder": 7,
+    "IsActive": true,
+    "IsFinalStage": true,
+    "RequiresRemark": true,
+    "RequiresDocumentUpload": false,
+    "DefaultSlaDays": 0,
+    "CreatedAt": "2026-05-18T00:00:00.000Z",
+    "UpdatedAt": "2026-05-18T00:00:00.000Z"
+  }
+]

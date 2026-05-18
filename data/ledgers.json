@@ -1,0 +1,36 @@
+[
+  {
+    "LedgerId": 1,
+    "LedgerCode": "LDR0001",
+    "Ledger": "Rajesh Kumar",
+    "DisplayName": "Rajesh Kumar",
+    "PhoneNumber": "9876543210",
+    "Email": "rajesh.kumar@example.com",
+    "Whatsapp": "9876543210",
+    "Pan": "ABCDE1234F",
+    "Gst": "",
+    "Address1": "12 MG Road",
+    "Address2": "Kolkata",
+    "Aadhaar": "123412341234",
+    "IsActive": true,
+    "CreatedAt": "2026-05-18T00:00:00.000Z",
+    "UpdatedAt": "2026-05-18T00:00:00.000Z"
+  },
+  {
+    "LedgerId": 2,
+    "LedgerCode": "LDR0002",
+    "Ledger": "Sandeep Traders",
+    "DisplayName": "Sandeep Traders Pvt. Ltd.",
+    "PhoneNumber": "9898989898",
+    "Email": "accounts@sandeeptraders.com",
+    "Whatsapp": "9898989898",
+    "Pan": "PQRSX5678L",
+    "Gst": "19AAACP1111A1Z5",
+    "Address1": "44 Salt Lake",
+    "Address2": "Sector V, Kolkata",
+    "Aadhaar": "",
+    "IsActive": true,
+    "CreatedAt": "2026-05-18T00:00:00.000Z",
+    "UpdatedAt": "2026-05-18T00:00:00.000Z"
+  }
+]

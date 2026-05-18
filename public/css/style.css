@@ -686,6 +686,16 @@ a {
   color: var(--gray-600);
 }
 
+.badge-open {
+  background: #e3f2fd;
+  color: #1565c0;
+}
+
+.badge-in-progress {
+  background: #fff3e0;
+  color: #ef6c00;
+}
+
 /* ===== FORMS ===== */
 .form-custom .form-label {
   font-weight: 600;
@@ -747,6 +757,55 @@ a {
 
 .empty-state p {
   font-size: 13px;
+  color: var(--gray-600);
+}
+
+/* ===== LOAN TIMELINE ===== */
+.loan-timeline {
+  position: relative;
+  padding-left: 18px;
+}
+
+.loan-timeline::before {
+  content: '';
+  position: absolute;
+  left: 6px;
+  top: 4px;
+  bottom: 4px;
+  width: 2px;
+  background: var(--gray-200);
+}
+
+.loan-timeline-item {
+  position: relative;
+  padding-bottom: 18px;
+}
+
+.loan-timeline-item:last-child {
+  padding-bottom: 0;
+}
+
+.loan-timeline-dot {
+  position: absolute;
+  left: -17px;
+  top: 4px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--primary);
+  border: 3px solid #fff;
+  box-shadow: 0 0 0 1px var(--gray-200);
+}
+
+.loan-timeline-card {
+  background: #fff;
+  border: 1px solid var(--gray-200);
+  border-radius: 12px;
+  padding: 14px 16px;
+}
+
+.loan-timeline-meta {
+  font-size: 12px;
   color: var(--gray-600);
 }
 

@@ -138,10 +138,29 @@ function getStatusBadge(status) {
     'Pending': 'badge-pending',
     'Approved': 'badge-approved',
     'Rejected': 'badge-rejected',
-    'Weekend': 'badge-weekend'
+    'Weekend': 'badge-weekend',
+    'Open': 'badge-open',
+    'In Progress': 'badge-in-progress',
+    'Document in Office': 'badge-open',
+    'Document Submitted in Bank': 'badge-pending',
+    'Query Raised': 'badge-late',
+    'Query Resolved': 'badge-approved',
+    'Sanctioned': 'badge-approved',
+    'Loan Disbursed': 'badge-approved',
+    'Follow-up Pending': 'badge-late',
+    'Follow-up Completed': 'badge-approved'
   };
   const cls = map[status] || 'badge-present';
   return `<span class="badge-status ${cls}">${status}</span>`;
+}
+
+function formatCurrency(value) {
+  const amount = Number(value) || 0;
+  return `₹${amount.toLocaleString('en-IN')}`;
+}
+
+function getQueryParam(name) {
+  return new URLSearchParams(window.location.search).get(name);
 }
 
 function setupSidebar() {
@@ -186,8 +205,12 @@ function setupSidebar() {
   });
 
   const currentPage = window.location.pathname.split('/').pop();
+  const activeAliases = {
+    'loan-case-detail.html': 'loan-cases.html'
+  };
+  const activePage = activeAliases[currentPage] || currentPage;
   document.querySelectorAll('.sidebar-nav .nav-link').forEach(link => {
-    if (link.getAttribute('href') === currentPage) {
+    if (link.getAttribute('href') === activePage) {
       link.classList.add('active');
     }
   });

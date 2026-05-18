@@ -12,13 +12,18 @@
 
   async function loadAdminDashboard() {
     try {
-      const data = await apiRequest('/admin-summary');
+      const [data, loanData] = await Promise.all([
+        apiRequest('/admin-summary'),
+        apiRequest('/loan-dashboard-summary')
+      ]);
       if (!data) return;
 
       updateStats(data);
       renderRecentAttendance(data.recentAttendance);
       renderPendingLeaves(data.recentLeaves);
       renderEmployeeList(data.employees);
+      renderLoanStats(loanData || {});
+      renderLoanActivity((loanData && loanData.recentStatusChanges) || []);
     } catch (err) {
       showToast('Failed to load admin dashboard', 'error');
     }
@@ -143,6 +148,36 @@
     });
 
     tbody.innerHTML = html;
+  }
+
+  function renderLoanStats(data) {
+    document.getElementById('loanTotalLedgers').textContent = data.totalLedgers || 0;
+    document.getElementById('loanTotalCases').textContent = data.totalLoanCases || 0;
+    document.getElementById('loanPendingCases').textContent = data.pendingCases || 0;
+    document.getElementById('loanSanctionedCases').textContent = data.sanctionedCases || 0;
+    document.getElementById('loanDisbursedCases').textContent = data.disbursedCases || 0;
+    document.getElementById('loanOverdueFollowups').textContent = data.overdueFollowups || 0;
+  }
+
+  function renderLoanActivity(rows) {
+    const tbody = document.getElementById('loanActivityBody');
+    document.getElementById('loanActivityCount').textContent = rows.length;
+
+    if (!rows.length) {
+      tbody.innerHTML = '<tr><td colspan="6" class="text-center text-muted py-4">No loan activity</td></tr>';
+      return;
+    }
+
+    tbody.innerHTML = rows.map(row => `
+      <tr>
+        <td class="fw-semibold">${row.FileNo || '--'} / ${row.CaseNo || '--'}</td>
+        <td>${row.LoanMilestoneName || '--'}</td>
+        <td>${getStatusBadge(row.Status || row.LoanMilestoneName || 'Open')}</td>
+        <td title="${row.Remark || ''}" style="max-width:220px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${row.Remark || '--'}</td>
+        <td>${row.ChangedByEmployeeName || '--'}</td>
+        <td style="font-size:12px;">${formatDate(row.ChangedAt)}</td>
+      </tr>
+    `).join('');
   }
 
   function formatHours(minutes) {

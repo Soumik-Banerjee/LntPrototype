@@ -1,0 +1,56 @@
+[
+  {
+    "LoanTypeId": 1,
+    "LoanTypeName": "Personal Loan",
+    "Description": "Unsecured retail loan",
+    "IsActive": true,
+    "SortOrder": 1,
+    "CreatedAt": "2026-05-18T00:00:00.000Z",
+    "UpdatedAt": "2026-05-18T00:00:00.000Z"
+  },
+  {
+    "LoanTypeId": 2,
+    "LoanTypeName": "Business Loan",
+    "Description": "Working capital and business expansion",
+    "IsActive": true,
+    "SortOrder": 2,
+    "CreatedAt": "2026-05-18T00:00:00.000Z",
+    "UpdatedAt": "2026-05-18T00:00:00.000Z"
+  },
+  {
+    "LoanTypeId": 3,
+    "LoanTypeName": "Home Loan",
+    "Description": "Property purchase or construction",
+    "IsActive": true,
+    "SortOrder": 3,
+    "CreatedAt": "2026-05-18T00:00:00.000Z",
+    "UpdatedAt": "2026-05-18T00:00:00.000Z"
+  },
+  {
+    "LoanTypeId": 4,
+    "LoanTypeName": "Vehicle Loan",
+    "Description": "Two-wheeler and four-wheeler financing",
+    "IsActive": true,
+    "SortOrder": 4,
+    "CreatedAt": "2026-05-18T00:00:00.000Z",
+    "UpdatedAt": "2026-05-18T00:00:00.000Z"
+  },
+  {
+    "LoanTypeId": 5,
+    "LoanTypeName": "Mortgage Loan",
+    "Description": "Loan against property",
+    "IsActive": true,
+    "SortOrder": 5,
+    "CreatedAt": "2026-05-18T00:00:00.000Z",
+    "UpdatedAt": "2026-05-18T00:00:00.000Z"
+  },
+  {
+    "LoanTypeId": 6,
+    "LoanTypeName": "Gold Loan",
+    "Description": "Secured against gold ornaments",
+    "IsActive": true,
+    "SortOrder": 6,
+    "CreatedAt": "2026-05-18T00:00:00.000Z",
+    "UpdatedAt": "2026-05-18T00:00:00.000Z"
+  }
+]
