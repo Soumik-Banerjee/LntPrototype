@@ -189,7 +189,7 @@ function renderSidebar() {
     const cls = ['nav-link', isActive ? 'active' : '', item.isLogout ? 'logout-link' : ''].filter(Boolean).join(' ');
     const isVisible = !item.adminOnly || isAdmin();
     const itemClass = item.adminOnly ? 'nav-item admin-only' : 'nav-item';
-    return `<div class="${itemClass}"${isVisible ? '' : ' style="display:none;"'}><a class="${cls}" href="${item.href}"><i class="bi ${item.icon}"></i>${item.label}</a></div>`;
+    return `<div class="${itemClass}"${isVisible ? '' : ' style="display:none;"'}><a class="${cls}" href="${item.href}" data-label="${item.label}"><i class="bi ${item.icon}"></i>${item.label}</a></div>`;
   }).join('');
 
   nav.querySelectorAll('.logout-link').forEach(el => {
@@ -204,10 +204,43 @@ function setupSidebar() {
   const sidebar = document.getElementById('sidebar');
   const overlay = document.getElementById('sidebarOverlay');
 
+  function isDesktop() {
+    return window.innerWidth > 768;
+  }
+
+  function applyCollapsedState(collapsed) {
+    if (!sidebar) return;
+    sidebar.classList.toggle('collapsed', collapsed);
+    if (toggleBtn) {
+      toggleBtn.innerHTML = collapsed
+        ? '<i class="bi bi-list-nested"></i>'
+        : '<i class="bi bi-list"></i>';
+    }
+  }
+
+  function restoreSidebarState() {
+    if (!sidebar) return;
+    if (isDesktop()) {
+      const saved = localStorage.getItem('sidebar_collapsed') === 'true';
+      applyCollapsedState(saved);
+    } else {
+      sidebar.classList.remove('collapsed');
+      if (toggleBtn) toggleBtn.innerHTML = '<i class="bi bi-list"></i>';
+      sidebar.classList.remove('show');
+      if (overlay) overlay.classList.remove('show');
+    }
+  }
+
   if (toggleBtn && sidebar) {
     toggleBtn.addEventListener('click', () => {
-      sidebar.classList.toggle('show');
-      if (overlay) overlay.classList.toggle('show');
+      if (isDesktop()) {
+        const isCollapsed = sidebar.classList.contains('collapsed');
+        applyCollapsedState(!isCollapsed);
+        localStorage.setItem('sidebar_collapsed', !isCollapsed);
+      } else {
+        sidebar.classList.toggle('show');
+        if (overlay) overlay.classList.toggle('show');
+      }
     });
   }
 
@@ -217,6 +250,12 @@ function setupSidebar() {
       overlay.classList.remove('show');
     });
   }
+
+  setupSidebarTooltips(sidebar);
+
+  window.addEventListener('resize', restoreSidebarState);
+
+  restoreSidebarState();
 
   const emp = getEmployee();
   if (emp) {
@@ -228,6 +267,37 @@ function setupSidebar() {
     if (topbarRole) topbarRole.textContent = emp.department;
     if (avatarText) avatarText.textContent = emp.name.split(' ').map(n => n[0]).join('').substring(0, 2).toUpperCase();
   }
+}
+
+function setupSidebarTooltips(sidebar) {
+  if (!sidebar) return;
+
+  let tooltip = document.getElementById('sidebarTooltip');
+  if (!tooltip) {
+    tooltip = document.createElement('div');
+    tooltip.id = 'sidebarTooltip';
+    tooltip.style.cssText = 'position:fixed;background:#0d1742;color:#fff;padding:8px 14px;border-radius:6px;font-size:13px;font-weight:500;white-space:nowrap;z-index:9999;pointer-events:none;display:none;box-shadow:0 4px 12px rgba(0,0,0,0.2);transform:translateY(-50%);';
+    document.body.appendChild(tooltip);
+  }
+
+  function hideTooltip() { tooltip.style.display = 'none'; }
+
+  sidebar.addEventListener('mouseover', (e) => {
+    const link = e.target.closest('.nav-link');
+    if (!link || window.innerWidth <= 768) { hideTooltip(); return; }
+    if (!sidebar.classList.contains('collapsed')) { hideTooltip(); return; }
+    const label = link.getAttribute('data-label');
+    if (!label) return;
+    const rect = link.getBoundingClientRect();
+    tooltip.textContent = label;
+    tooltip.style.display = 'block';
+    tooltip.style.left = (rect.right + 10) + 'px';
+    tooltip.style.top = (rect.top + rect.height / 2) + 'px';
+  });
+
+  sidebar.addEventListener('mouseout', (e) => {
+    if (e.target.closest('.nav-link')) hideTooltip();
+  });
 }
 
 function populateMonthYearSelects() {
