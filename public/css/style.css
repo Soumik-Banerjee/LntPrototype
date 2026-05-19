@@ -13,6 +13,7 @@
   --gray-600: #6c757d;
   --gray-800: #343a40;
   --sidebar-width: 260px;
+  --sidebar-collapsed-width: 72px;
   --topbar-height: 60px;
 }
 
@@ -255,8 +256,51 @@ a {
   background: var(--primary);
   color: #fff;
   z-index: 1020;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, width 0.3s ease;
   overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.sidebar.collapsed {
+  width: var(--sidebar-collapsed-width);
+}
+
+.sidebar.collapsed .sidebar-brand {
+  padding: 20px 8px 24px;
+  text-align: center;
+}
+
+.sidebar.collapsed .sidebar-brand h5 {
+  font-size: 0;
+}
+
+.sidebar.collapsed .sidebar-brand h5 i {
+  font-size: 24px;
+  margin: 0;
+}
+
+.sidebar.collapsed .sidebar-brand small {
+  display: none;
+}
+
+.sidebar.collapsed .sidebar-nav {
+  padding: 16px 8px;
+}
+
+.sidebar.collapsed .sidebar-nav .nav-link {
+  justify-content: center;
+  padding: 12px 0;
+  font-size: 0;
+  position: relative;
+}
+
+.sidebar.collapsed .sidebar-nav .nav-link i {
+  margin-right: 0;
+  font-size: 20px;
+}
+
+.sidebar.collapsed .sidebar-nav .nav-link:hover {
+  background: rgba(255, 255, 255, 0.15);
 }
 
 .sidebar-brand {
@@ -337,16 +381,26 @@ a {
   justify-content: space-between;
   padding: 0 24px;
   z-index: 1010;
+  transition: left 0.3s ease;
+}
+
+.sidebar.collapsed ~ .topbar {
+  left: var(--sidebar-collapsed-width);
 }
 
 .topbar .sidebar-toggle {
-  display: none;
+  display: block;
   background: none;
   border: none;
   font-size: 24px;
   color: var(--gray-800);
   cursor: pointer;
   padding: 4px;
+  transition: color 0.2s;
+}
+
+.topbar .sidebar-toggle:hover {
+  color: var(--primary);
 }
 
 .topbar .topbar-right {
@@ -391,6 +445,11 @@ a {
   padding-right: 24px;
   padding-bottom: 40px;
   min-height: 100vh;
+  transition: margin-left 0.3s ease;
+}
+
+.sidebar.collapsed ~ .main-content {
+  margin-left: var(--sidebar-collapsed-width);
 }
 
 .page-header {
@@ -893,6 +952,11 @@ a {
 @media (max-width: 768px) {
   .sidebar {
     transform: translateX(-100%);
+    width: var(--sidebar-width);
+  }
+
+  .sidebar.collapsed {
+    width: var(--sidebar-width);
   }
 
   .sidebar.show {
@@ -900,6 +964,10 @@ a {
   }
 
   .topbar {
+    left: 0;
+  }
+
+  .sidebar.collapsed ~ .topbar {
     left: 0;
   }
 
@@ -911,6 +979,10 @@ a {
     margin-left: 0;
     padding-left: 16px;
     padding-right: 16px;
+  }
+
+  .sidebar.collapsed ~ .main-content {
+    margin-left: 0;
   }
 
   .landing-hero h1 {
