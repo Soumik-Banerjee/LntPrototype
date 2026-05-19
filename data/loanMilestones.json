@@ -9,19 +9,19 @@
     "RequiresDocumentUpload": false,
     "DefaultSlaDays": 2,
     "CreatedAt": "2026-05-18T00:00:00.000Z",
-    "UpdatedAt": "2026-05-18T00:00:00.000Z"
+    "UpdatedAt": "2026-05-19T02:20:08.170Z"
   },
   {
     "LoanMilestoneId": 2,
     "MilestoneName": "Document Submitted in Bank",
-    "MilestoneOrder": 2,
+    "MilestoneOrder": 1,
     "IsActive": true,
     "IsFinalStage": false,
     "RequiresRemark": true,
     "RequiresDocumentUpload": true,
     "DefaultSlaDays": 3,
     "CreatedAt": "2026-05-18T00:00:00.000Z",
-    "UpdatedAt": "2026-05-18T00:00:00.000Z"
+    "UpdatedAt": "2026-05-19T02:19:32.785Z"
   },
   {
     "LoanMilestoneId": 3,

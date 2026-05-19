@@ -1,1 +1,20 @@
-[]
+[
+  {
+    "LoanCaseId": 1,
+    "FileNo": "file-001",
+    "CaseNo": "case-001",
+    "LedgerId": 2,
+    "LoanTypeId": 1,
+    "LoanAmount": 12000,
+    "SanctionAmount": 12000,
+    "Tenure": 6,
+    "InterestRate": 5,
+    "AssignedToEmployeeId": 3,
+    "CurrentMilestoneId": 1,
+    "CurrentStatus": "Document in Office",
+    "Priority": "Urgent",
+    "Remarks": "na",
+    "CreatedAt": "2026-05-19T02:21:29.439Z",
+    "UpdatedAt": "2026-05-19T02:21:29.439Z"
+  }
+]

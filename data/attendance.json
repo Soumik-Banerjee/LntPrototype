@@ -22,5 +22,17 @@
     "isLate": true,
     "notes": "",
     "createdAt": "2026-05-15T18:23:32.863Z"
+  },
+  {
+    "id": 3,
+    "employeeId": 2,
+    "date": "2026-05-19",
+    "checkIn": "07:52",
+    "checkOut": null,
+    "workingHours": null,
+    "status": "Present",
+    "isLate": false,
+    "notes": "",
+    "createdAt": "2026-05-19T02:22:57.719Z"
   }
 ]

@@ -1,1 +1,14 @@
-[]
+[
+  {
+    "LoanStatusHistoryId": 1,
+    "LoanCaseId": 1,
+    "LoanMilestoneId": 1,
+    "Status": "Document in Office",
+    "Remark": "na",
+    "ChangedByEmployeeId": 1,
+    "ChangedByEmployeeName": "Admin User",
+    "ChangedAt": "2026-05-19T02:21:29.443Z",
+    "NextFollowUpDate": "",
+    "IsCurrent": true
+  }
+]
