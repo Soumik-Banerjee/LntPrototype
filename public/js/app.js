@@ -163,7 +163,43 @@ function getQueryParam(name) {
   return new URLSearchParams(window.location.search).get(name);
 }
 
+function renderSidebar() {
+  const nav = document.querySelector('.sidebar-nav');
+  if (!nav) return;
+
+  const menuItems = [
+    { label: 'Dashboard', icon: 'bi-grid-1x2-fill', href: '/dashboard.html' },
+    { label: 'Attendance', icon: 'bi-clock-history', href: '/attendance.html' },
+    { label: 'Leave', icon: 'bi-calendar-plus', href: '/leave.html' },
+    { label: 'Ledger Master', icon: 'bi-people-fill', href: '/ledger.html', adminOnly: true },
+    { label: 'Loan Types', icon: 'bi-tags-fill', href: '/loan-types.html', adminOnly: true },
+    { label: 'Milestones', icon: 'bi-list-check', href: '/loan-milestones.html', adminOnly: true },
+    { label: 'Loan Cases', icon: 'bi-folder2-open', href: '/loan-cases.html', adminOnly: true },
+    { label: 'Follow-ups', icon: 'bi-chat-dots', href: '/followups.html', adminOnly: true },
+    { label: 'Admin Panel', icon: 'bi-shield-lock-fill', href: '/admin.html', adminOnly: true },
+    { label: 'Logout', icon: 'bi-box-arrow-left', href: '#', isLogout: true }
+  ];
+
+  const currentPage = window.location.pathname.split('/').pop();
+  const activeAliases = { 'loan-case-detail.html': 'loan-cases.html' };
+  const activePage = activeAliases[currentPage] || currentPage;
+
+  nav.innerHTML = menuItems.map(item => {
+    const isActive = item.href === '/' + activePage;
+    const cls = ['nav-link', isActive ? 'active' : '', item.isLogout ? 'logout-link' : ''].filter(Boolean).join(' ');
+    const isVisible = !item.adminOnly || isAdmin();
+    const itemClass = item.adminOnly ? 'nav-item admin-only' : 'nav-item';
+    return `<div class="${itemClass}"${isVisible ? '' : ' style="display:none;"'}><a class="${cls}" href="${item.href}"><i class="bi ${item.icon}"></i>${item.label}</a></div>`;
+  }).join('');
+
+  nav.querySelectorAll('.logout-link').forEach(el => {
+    el.addEventListener('click', e => { e.preventDefault(); logout(); });
+  });
+}
+
 function setupSidebar() {
+  renderSidebar();
+
   const toggleBtn = document.getElementById('sidebarToggle');
   const sidebar = document.getElementById('sidebar');
   const overlay = document.getElementById('sidebarOverlay');
@@ -184,40 +220,13 @@ function setupSidebar() {
 
   const emp = getEmployee();
   if (emp) {
-    const sidebarName = document.getElementById('sidebarEmployeeName');
-    const sidebarRole = document.getElementById('sidebarEmployeeRole');
     const topbarName = document.getElementById('topbarEmployeeName');
     const topbarRole = document.getElementById('topbarEmployeeRole');
     const avatarText = document.getElementById('avatarText');
 
-    if (sidebarName) sidebarName.textContent = emp.name;
-    if (sidebarRole) sidebarRole.textContent = emp.role;
     if (topbarName) topbarName.textContent = emp.name;
     if (topbarRole) topbarRole.textContent = emp.department;
     if (avatarText) avatarText.textContent = emp.name.split(' ').map(n => n[0]).join('').substring(0, 2).toUpperCase();
-  }
-
-  document.querySelectorAll('.logout-link').forEach(el => {
-    el.addEventListener('click', (e) => {
-      e.preventDefault();
-      logout();
-    });
-  });
-
-  const currentPage = window.location.pathname.split('/').pop();
-  const activeAliases = {
-    'loan-case-detail.html': 'loan-cases.html'
-  };
-  const activePage = activeAliases[currentPage] || currentPage;
-  document.querySelectorAll('.sidebar-nav .nav-link').forEach(link => {
-    if (link.getAttribute('href') === activePage) {
-      link.classList.add('active');
-    }
-  });
-
-  const adminLinks = document.querySelectorAll('.admin-only');
-  if (!isAdmin()) {
-    adminLinks.forEach(el => el.style.display = 'none');
   }
 }
 
